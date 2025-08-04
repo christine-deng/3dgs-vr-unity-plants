@@ -14,5 +14,3 @@
 intro.md
 install.md
 scripts.md
-```
-
