@@ -35,6 +35,28 @@
   padding: 0.5em 0 !important;
 }
 
+/* ===== New: full width fixed top header panel ===== */
+
+/* Container for the top header panel */
+header {
+  width: 100% !important;
+  background-color: #222 !important; /* dark background */
+  padding: 1rem 0 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* Push page content down so it’s not hidden behind fixed header */
 body {
-  background-color: yellow !important;
+  padding-top: 4rem !important; /* adjust this if header height changes */
+}
+
+/* Make title text visible in header */
+.header-logo,
+.header-logo a {
+  color: white !important;
+  text-decoration: none !important;
 }
