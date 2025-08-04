@@ -47,8 +47,9 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
 }
 
+/* for header height */
 body {
-  padding-top: 4rem !important; /* for header height */
+  padding-top: 4rem !important;
 }
 
 /* title visibility */
@@ -56,4 +57,9 @@ body {
 .header-logo a {
   color: rgb(0, 0, 0) !important;
   text-decoration: none !important;
+}
+
+/* remove the word "Documentation" from the header */
+.header h2 {
+  display: none !important;
 }
