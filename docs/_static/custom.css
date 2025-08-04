@@ -1,0 +1,16 @@
+.copybtn {
+  position: absolute !important;
+  top: 0.25em !important;
+  right: 0.25em !important;
+  font-size: 0.75em !important;
+  padding: 0.15em 0.3em !important;
+  border-radius: 3px !important;
+  opacity: 0.7 !important;
+  transition: opacity 0.3s ease !important;
+}
+.copybtn:hover {
+  opacity: 1 !important;
+}
+.highlight {
+  position: relative !important;
+}
