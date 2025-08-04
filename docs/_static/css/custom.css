@@ -1,9 +1,58 @@
+/* =======================
+   ✅ HEADER LAYOUT FIXES
+   ======================= */
+
+/* Hide the logo container if not needed */
+#logo-container {
+  display: none !important;
+}
+
+/* Center the title across the top */
+#project-container {
+  flex-grow: 1 !important;
+  text-align: center !important;
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  padding: 1rem 0 !important;
+  margin: 0 auto !important;
+  color: black !important;
+  display: block !important;
+}
+
+/* Remove ':: Documentation' suffix if it appears */
+header #project-container::after {
+  content: "" !important;
+}
+
+/* Prevent the white bar bug */
+header {
+  background-color: #ffffff !important;
+  width: 100% !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  padding: 1rem 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Prevent title from overlapping content */
+body {
+  padding-top: 5rem !important;
+}
+
+
+/* ========================
+   ✅ COPY BUTTON FIXES
+   ======================== */
+
 /* Ensure highlight container is positioned relatively */
 .highlight {
   position: relative !important;
 }
 
-/* copy button to the top left */
+/* Copy button to the top right of code blocks */
 .copybtn {
   position: absolute !important;
   top: 0.25em !important;
@@ -13,60 +62,29 @@
   border-radius: 3px !important;
   opacity: 0.7 !important;
   transition: opacity 0.3s ease !important;
-  z-index: 10 !important; /* ensure button is above code */
+  z-index: 10 !important;
 }
 
 .copybtn:hover {
   opacity: 1 !important;
 }
 
-/* title to the toppp */
-.header-logo {
-  width: 100% !important;
-  text-align: center !important;
-  margin-left: 0 !important;
+
+/* ========================
+   ✅ TOC SIDEBAR FIX
+   ======================== */
+
+/* Make sure sidebar is visible */
+#side-menu-container {
+  display: block !important;
 }
 
-.header h2 {
-  display: none !important;
-}
-
-
-/* Custom fixes */
-
-/* Force full-width header */
-header {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 1rem 0 !important;
-  background-color: white !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-  width: 100% !important;
-}
-
-/* Stretch project title across top */
-#project-container {
-  flex-grow: 1 !important;
-  text-align: center !important;
-  font-size: 2rem !important;
-  font-weight: bold !important;
-  padding: 0 !important;
-  margin: 0 auto !important;
-  color: black !important;
-}
-
-/* Optional: Hide ':: Documentation' from title */
-header #project-container::after {
-  content: "" !important;  /* remove the " :: Documentation" suffix */
-}
-
-/* Optional: Hide logo if unwanted */
-#logo-container {
-  display: none !important;
-}
-
-/* Ensure body doesn't overlap header */
-body {
-  padding-top: 5rem !important;
+/* Reset TOC nesting styles if broken */
+#side-menu .toctree-l2 a,
+#side-menu .toctree-l3 a,
+#side-menu .toctree-l4 a {
+  display: block !important;
+  margin-left: 1em !important;
+  opacity: 1 !important;
+  font-weight: normal !important;
 }
