@@ -7,6 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Visualizing Plants in VR Using Unity and 3DGS'
+html_title = "Visualizing Plants in VR Using Unity and 3DGS"
+
 copyright = '2025, Jasmin Lin'
 author = 'Jasmin Lin, Wei Xu'
 
@@ -33,7 +35,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'insegel'
 html_static_path = ['_static']
-html_title = "Visualizing Plants in VR Using Unity and 3DGS"
 
 def setup(app):
     app.add_css_file('css/custom.css')
