@@ -24,7 +24,7 @@ def run_git_commands(commit_message, url):
         subprocess.run(['git', 'commit', '-m', commit_message], check=True)
         subprocess.run(['git', 'push', '-u', 'origin', 'master'], check=True)  # master branch
         
-        print("Git push successful!")
+        print("Hooray! You pushed successfully!")
     except subprocess.CalledProcessError as e:
         print(f"An error occurred: {e}")
         sys.exit(1)
