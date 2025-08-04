@@ -14,3 +14,18 @@
 .highlight {
   position: relative !important;
 }
+
+/* title to the toppp */
+.header-logo {
+  width: 100% !important;
+  text-align: center !important;
+  margin-left: 0 !important;
+}
+
+/* font size */
+.header-logo a {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  display: inline-block;
+  padding: 0.5em 0;
+}
