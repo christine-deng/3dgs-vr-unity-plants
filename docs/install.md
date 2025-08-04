@@ -2,7 +2,7 @@
 
 ## Hardware Requirements
 - **PC:** Alienware Aurora R16 (x64)
-- **Processor:** Intel(R) Core(TM) i9-14900KF   3.20 GHz
+- **Processor:** Intel(R) Core(TM) i9-14900KF  3.20 GHz
 - **RAM:** 64.0 GB
 - **GPU:** NVIDIA GeForce RTX 4090
 
