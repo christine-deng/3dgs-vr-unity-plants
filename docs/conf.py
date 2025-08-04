@@ -8,7 +8,7 @@
 
 project = 'Visualizing Plants in VR Using Unity and 3DGS'
 copyright = '2025, Jasmin Lin'
-author = 'Jasmin Lin'
+author = 'Jasmin Lin, Wei Xu'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
