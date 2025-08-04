@@ -2,6 +2,10 @@
 #logo-container {
   display: none !important;
 }
+/* Hide the default main page title "Documentation" */
+#main-content h1 {
+  display: none !important;
+}
 
 /* Center the title across the top */
 #project-container {
