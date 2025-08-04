@@ -40,5 +40,5 @@ def setup(app):
 
 
 html_theme_options = {
-    'navigation_depth': 2,
+    'navigation_depth': 1,
 }

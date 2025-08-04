@@ -30,3 +30,43 @@
 .header h2 {
   display: none !important;
 }
+
+
+/* Custom fixes */
+
+/* Force full-width header */
+header {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 1rem 0 !important;
+  background-color: white !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  width: 100% !important;
+}
+
+/* Stretch project title across top */
+#project-container {
+  flex-grow: 1 !important;
+  text-align: center !important;
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  color: black !important;
+}
+
+/* Optional: Hide ':: Documentation' from title */
+header #project-container::after {
+  content: "" !important;  /* remove the " :: Documentation" suffix */
+}
+
+/* Optional: Hide logo if unwanted */
+#logo-container {
+  display: none !important;
+}
+
+/* Ensure body doesn't overlap header */
+body {
+  padding-top: 5rem !important;
+}

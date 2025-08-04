@@ -5,7 +5,7 @@
 
 
 
-# Visualizing Plants in VR Using Unity and 3DGS Documentation
+# Visualizing Plants in VR Using Unity and 3DGS
 
 ```{toctree}
 :maxdepth: 2
@@ -14,3 +14,4 @@
 intro.md
 install.md
 scripts.md
+
