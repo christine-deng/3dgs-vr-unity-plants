@@ -1,19 +1,25 @@
-.copybtn {
-  position: absolute !important;
-  top: 0.25em !important;
-  right: 0.25em !important;
-  font-size: 0.75em !important;
-  padding: 0.15em 0.3em !important;
-  border-radius: 3px !important;
-  opacity: 0.7 !important;
-  transition: opacity 0.3s ease !important;
-}
-.copybtn:hover {
-  opacity: 1 !important;
-}
+/* Ensure highlight container is positioned relatively */
 .highlight {
-  position: relative !important;
+  position: relative;
 }
+
+/* copy button to the top left */
+.copybtn {
+  position: absolute;
+  top: 0.25em;
+  right: 0.25em;
+  font-size: 0.75em;
+  padding: 0.15em 0.3em;
+  border-radius: 3px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: 10; /* ensure button is above code */
+}
+
+.copybtn:hover {
+  opacity: 1;
+}
+
 
 /* title to the toppp */
 .header-logo {
