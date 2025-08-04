@@ -1,5 +1,7 @@
 import subprocess
 import sys
+import html_rebuild
+import time
 
 URL = "https://github.com/lajazz23/3dgs-vr-unity-plants.git"
 DEFAULT_COMMIT_MSG = "Updating..."
@@ -30,6 +32,9 @@ def run_git_commands(commit_message, url):
         sys.exit(1)
 
 if __name__ == '__main__':
-\
+    html_rebuild.build_html()
+    html_rebuild.copy_html()
+    html_rebuild.clean_build()
+    time.sleep(2)
     commit_msg = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_COMMIT_MSG
     run_git_commands(commit_msg, URL)

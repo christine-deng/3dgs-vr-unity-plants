@@ -49,7 +49,29 @@
           
   <section id="introduction-to-the-project">
 <h1>Introduction to the Project<a class="headerlink" href="#introduction-to-the-project" title="Link to this heading">¶</a></h1>
-<p>This project was part of my 2025 DOE SULI internship project, overseen by my mentor, <a class="reference external" href="https://www.bnl.gov/staff/xuw">Wei Xu</a>at Brookhaven National Laboratory. In this project, I utilize Unity as a medium to render and interact with 3D Gaussian Splatting (3DGS) plant models. I use aras-p’s <a class="reference external" href="https://github.com/aras-p/UnityGaussianSplatting">Gaussian Splatting playgrounf Unity</a> project to render the models. I incorporate virtual reality (VR) as a means to interact and visualize the plants.</p>
+<p>This project was part of my 2025 DOE SULI internship project, overseen by my mentor, <a class="reference external" href="https://www.bnl.gov/staff/xuw">Wei Xu</a>at Brookhaven National Laboratory. In this project, I utilize Unity as a medium to render and interact with 3D Gaussian Splatting (3DGS) plant models. I use aras-p’s <a class="reference external" href="https://github.com/aras-p/UnityGaussianSplatting">Gaussian Splatting playground Unity</a> project to render the models. I incorporate virtual reality (VR) as a means to interact and visualize the plants.</p>
+<section id="what-is-3d-gaussian-splatting">
+<h2>What is 3D Gaussian Splatting?<a class="headerlink" href="#what-is-3d-gaussian-splatting" title="Link to this heading">¶</a></h2>
+<p>3D Gaussian Splatting (3D GS)–a point-based rendering method that uses 2D images to reconstruct realistic 3D scenes. Compared to other notable rendering methods such as NeRF and InstantNGP, 3D GS can produce equal or even higher quality models at fast training speeds using real-time rendering and efficient rasterization, increasing the realm of complex scene generation. Through the use of anisotropic splats to represent surface geometry and texture, 3D GS eliminates the use of manual mesh generation, greatly increasing efficiency.</p>
+<section id="dgs-pipeline">
+<h3>3DGS Pipeline<a class="headerlink" href="#dgs-pipeline" title="Link to this heading">¶</a></h3>
+<p>The 3DGS pipeline reconstructs a 3D scene from a collection of 2D images with known camera poses. The process typically begins with input images and corresponding camera parameters, which are often obtained through Structure-from-Motion (SfM) tools such as COLMAP. The camera poses are extracted into a JSON file. Importantly, each Gaussian in the 3DGS model stores spherical harmonic (SH) coefficients, which encode how that point reflects light from various viewing angles. This view-dependent shading enables realistic lighting without needing physical light sources or detailed surface geometry. As a result, the model can reproduce subtle changes in appearance based on camera position.</p>
+<p>These inputs are used to generate a scene composed of 3D Gaussian primitives—each representing position, scale, color, and orientation. Instead of relying on traditional mesh geometry, 3DGS renders the scene directly from these point-based representations using efficient rasterization techniques. The output is a high-fidelity, real-time-renderable 3D scene that can be visualized in applications such as Unity, with full support for camera movement and scene interaction.</p>
+</section>
+</section>
+<section id="why-use-virtual-reality">
+<h2>Why Use Virtual Reality?<a class="headerlink" href="#why-use-virtual-reality" title="Link to this heading">¶</a></h2>
+<p>Virtual Reality (VR) provides a modern and immersive interface for interacting directly with the 3DGS models. By integrating the scene into a VR environment using Unity, users can intuitively explore complex biological structures from multiple perspectives in real time. Being hands-on, interaction using VR enables us to analyze data directly within the 3D environment. Unlike static images or flat screens, VR allows for natural navigation around the model, making it easier to observe fine details and perform spatial analysis.</p>
+</section>
+<section id="integration-in-unity">
+<h2>Integration in Unity<a class="headerlink" href="#integration-in-unity" title="Link to this heading">¶</a></h2>
+<p>Unity serves as the foundation of the project, bringing together 3DGS rendering and VR interaction in one environment. It functions both as the rendering engine for 3D Gaussian Splatting (3DGS) models and as the user interface for immersive exploration in Virtual Reality. The 3DGS rendering repository is integrated directly into the Unity project, enabling real-time visualization of complex point-based scenes. With Unity’s built-in support for VR and interactive controls, users can navigate, inspect, and eventually analyze the 3D models within a cohesive, interactive space.</p>
+<p>When rendering 3DGS models in Unity, the SH coefficients are used to determine the color and shading of each point based on the current view direction. This means that different perspectives of the same model produce slightly different lighting effects, enhancing realism and visual depth within the VR environment. This allows for a realistic representation of the plant within VR.</p>
+<section id="openxr-integration">
+<h3>OpenXR Integration<a class="headerlink" href="#openxr-integration" title="Link to this heading">¶</a></h3>
+<p>To enable VR interaction within Unity, this project uses OpenXR—-an open standard for accessing virtual and augmented reality devices. OpenXR provides a unified interface for connecting various hardware (such as VR headsets and controllers) without relying on platform-specific SDKs. In this setup, OpenXR allows Unity to detect and respond to controller input, enabling users to interact naturally with the 3DGS model in VR.</p>
+</section>
+</section>
 </section>
 
 
@@ -75,9 +97,44 @@
   
     <p class="caption" role="heading"><span class="caption-text">Navigation:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to the Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation of the Project</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#installing-the">Installing the</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to the Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-3d-gaussian-splatting">What is 3D Gaussian Splatting?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dgs-pipeline">3DGS Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#why-use-virtual-reality">Why Use Virtual Reality?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-in-unity">Integration in Unity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#openxr-integration">OpenXR Integration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Setup of the Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#software">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#setup">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#installing-the-optimizer">Installing the Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#installing-submodules">Installing Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#data-preparation">Data Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#optimizing-the-data">Optimizing the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#viewing-the-3d-gaussian-splats-in-sibr">Viewing the 3D Gaussian Splats in SIBR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#unity-gaussian-splatting">Unity Gaussian Splatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#hardware">Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#id1">Software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id2">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#unity-setup">Unity Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#importing-the-generated-3d-gaussian-splatting-model">Importing the Generated 3D Gaussian Splatting Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#viewing-the-model">Viewing the Model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scripts.html">Explanation of Scripts</a></li>

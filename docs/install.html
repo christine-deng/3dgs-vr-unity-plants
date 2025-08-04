@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#2D2D2D" />
   
-  <title>Visualizing Plants in VR Using Unity and 3DGS :: Installation of the Project</title>
+  <title>Visualizing Plants in VR Using Unity and 3DGS :: Setup of the Project</title>
   
 
   <link rel="icon" type="image/png" sizes="32x32" href="_static/img/favicon-32x32.png">
@@ -47,10 +47,201 @@
       <div id="main-content-container">
         <div id="main-content" role="main">
           
-  <section id="installation-of-the-project">
-<h1>Installation of the Project<a class="headerlink" href="#installation-of-the-project" title="Link to this heading">¶</a></h1>
-<section id="installing-the">
-<h2>Installing the<a class="headerlink" href="#installing-the" title="Link to this heading">¶</a></h2>
+  <section id="setup-of-the-project">
+<h1>Setup of the Project<a class="headerlink" href="#setup-of-the-project" title="Link to this heading">¶</a></h1>
+<section id="hardware-requirements">
+<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>PC:</strong> Alienware Aurora R16 (x64)</p></li>
+<li><p><strong>Processor:</strong> Intel(R) Core(TM) i9-14900KF  3.20 GHz</p></li>
+<li><p><strong>RAM:</strong> 64.0 GB</p></li>
+<li><p><strong>GPU:</strong> NVIDIA GeForce RTX 4090</p></li>
+</ul>
+</section>
+<section id="software">
+<h2>Software<a class="headerlink" href="#software" title="Link to this heading">¶</a></h2>
+<p>These were installed in sequential order.</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://git-scm.com/downloads">Git</a> :</strong> To be used for cloning the repository to obtain the code.</p></li>
+<li><p><strong><a class="reference external" href="https://www.anaconda.com/download/success">Conda</a> :</strong> To be used to create the environment that the code utilizes.</p></li>
+<li><p><strong><a class="reference external" href="https://developer.nvidia.com/cuda-11-7-1-download-archive">CUDA Toolkit v11.7</a> :</strong> The version of CUDA is critical for the success of the code. Version 11.6 will not work, and 11.8 did not work for me.</p></li>
+<li><p><strong><a class="reference external" href="https://www.catalog.update.microsoft.com/Search.aspx?q=visual+studio+2022&amp;amp;p=3">Visual Studio 2022 v17.4.6</a> :</strong> Be sure to select <strong>Desktop development with C++</strong>, as well as <strong>MSVC v142 - VS 2019 C++ x64/x86 build tools</strong>.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com/colmap/colmap/releases">COLMAP</a> :</strong> Used for reconstruction of 3D scene from images.</p></li>
+<li><p><strong><a class="reference external" href="https://imagemagick.org/script/download.php">ImageMagik</a> :</strong> Used for formatting and preparing images.</p></li>
+<li><p><strong><a class="reference external" href="https://ffmpeg.org/download.html">FFmpeg</a> :</strong> Used for extracting images from videos.</p></li>
+</ul>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">¶</a></h2>
+<p>Before touching the code, ensure that:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Microsoft</span> <span class="pre">Visual</span> <span class="pre">Studio\2022\Community\VC\Tools\MSVC\14.29.30133\bin\HostX64\x64</span></code> is added to the PATH. This should be the 2019 toolkit.</p></li>
+<li><p>CUDA toolkit has been installed.</p></li>
+<li><p>Visual Studio 2022 is version 17.4.6. I didn’t find success using the latest version of Visual Studio 2022.</p></li>
+</ul>
+<p>I used Windows Command Prompt for the initial setup and optimizing for the code. Be sure to close and reopen a new cmd window everytime you make manual file changes.</p>
+<section id="cloning-the-repository">
+<h3>Cloning the Repository<a class="headerlink" href="#cloning-the-repository" title="Link to this heading">¶</a></h3>
+<p>I first cloned the repository, which could be found in the <code class="docutils literal notranslate"><span class="pre">C:User/&lt;username&gt;</span></code> folder.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">graphdeco</span><span class="o">-</span><span class="n">inria</span><span class="o">/</span><span class="n">gaussian</span><span class="o">-</span><span class="n">splatting</span> <span class="o">--</span><span class="n">recursive</span>
+</pre></div>
+</div>
+</section>
+<section id="installing-the-optimizer">
+<h3>Installing the Optimizer<a class="headerlink" href="#installing-the-optimizer" title="Link to this heading">¶</a></h3>
+<p>To install the optimizer, I created a Conda environment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">gaussian_splatting</span> <span class="pre">python=3.7</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">gaussian_splatting</span></code></p>
+<p>NOTE: Always activate the gaussian_splatting environment before executing code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">vs2022_win-64</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">torch==1.13.1+cu117</span> <span class="pre">torchvision==0.14.1+cu117</span> <span class="pre">torchaudio==0.13.1</span> <span class="pre">--extra-index-url</span> <span class="pre">https://download.pytorch.org/whl/cu117</span></code></p>
+<p>NOTE: Certain versions of PyTorch and CUDA are not compatible. The versions above worked well for me.</p>
+</section>
+<section id="installing-submodules">
+<h3>Installing Submodules<a class="headerlink" href="#installing-submodules" title="Link to this heading">¶</a></h3>
+<p>In the initial setup of the environment, the submodules did not install properly. It will  be done here.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">C:\Users\&lt;username&gt;\gaussian-splatting</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">submodules/diff-gaussian-rasterization</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">submodules/simple-knn</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plyfile</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tqdm</span></code></p>
+<p>NOTE: I had failed installing the submodules many times. Using the Visual Studio 2019 C++ toolkit seemed to fix the issue.</p>
+</section>
+</section>
+<section id="data-preparation">
+<h2>Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">¶</a></h2>
+<p>Both videos and images can be used.
+First, I renamed the video for clarity and moved it into <code class="docutils literal notranslate"><span class="pre">../gaussian-splatting/input_data</span></code>. For example, with a video called <code class="docutils literal notranslate"><span class="pre">room.mp4</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>📂.../ 
+├──📂gaussian-splatting/ 
+│   ├──📂input_data/
+│   │	├──room.mp4		
+│   │   │...
+│   │...
+│...
+</pre></div>
+</div>
+<p>Now, opening Command Prompt again, input:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">gaussian_splatting</span>
+<span class="n">cd</span> <span class="n">gaussian</span><span class="o">-</span><span class="n">splatting</span>
+</pre></div>
+</div>
+<p>With the video in the correct location, input:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="n">input_data</span><span class="o">/</span><span class="n">room</span><span class="o">.</span><span class="n">mp4</span> <span class="o">-</span><span class="n">r</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="n">input_data</span><span class="o">/</span><span class="n">room</span><span class="o">/</span><span class="n">image</span><span class="o">%</span><span class="mi">03</span><span class="n">d</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p>This will output a series of images inside <code class="docutils literal notranslate"><span class="pre">../gaussian-splatting/input_data/room</span></code>.</p>
+<p>Images need to be setup in a specific way so that COLMAP can recognize it. I created another folder and manually moved the images into it. The structure is seen below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>📂.../ 
+├──📂gaussian-splatting/ 
+│   ├──📂input_data/
+│   │	├──📂room/
+│   │	│	├──📂input/
+│   │	│	│	├── 🖼️ &lt;image 0&gt;
+│   │	│	│	├── 🖼️ &lt;image 1&gt;
+│   │	│	│	│...
+│   │   │...
+│   │...
+│...
+</pre></div>
+</div>
+<p>For optimization to work, COLMAP needs to format the images properly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">convert</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">s</span> <span class="n">input_data</span><span class="o">/</span><span class="n">room</span> <span class="o">--</span><span class="n">colmap_executable</span> <span class="s2">&quot;C:\Users\&lt;username&gt;\colmap-x64-windows-cuda\COLMAP.bat&quot;</span>
+</pre></div>
+</div>
+<p>NOTE: COLMAP may be installed in a different location on your computer. Just change the path of COLMAP accordingly.</p>
+</section>
+<section id="optimizing-the-data">
+<h2>Optimizing the data<a class="headerlink" href="#optimizing-the-data" title="Link to this heading">¶</a></h2>
+<p>With the Conda environment active and the correct directory on Command Prompt, input:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">s</span> <span class="n">input_data</span><span class="o">/</span><span class="n">room</span>
+</pre></div>
+</div>
+<p>This step takes the longest. The code will generate a new folder in ````../gaussian-splatting/output`` that will contain the data. The name of the folder is usually randomized. I changed the name of this folder for clarity. The structure can be seen below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>📂.../ 
+├──📂gaussian-splatting/ 
+│   ├──📂output/
+│   │	├──📂room/ # original name was &quot;ade9c340-8&quot;
+│   │	│	├──📂point_cloud/
+│   │	│	│	├──📂iteration_7000/
+│   │	│	│	├──📂iteration_30000/ 
+│   │	│	│...		
+│   │   │...
+│   │...
+│...
+</pre></div>
+</div>
+</section>
+<section id="viewing-the-3d-gaussian-splats-in-sibr">
+<h2>Viewing the 3D Gaussian Splats in SIBR<a class="headerlink" href="#viewing-the-3d-gaussian-splats-in-sibr" title="Link to this heading">¶</a></h2>
+<p>The original repository uses SIBR to view the generated model, called<code class="docutils literal notranslate"><span class="pre">SIBR_gaussianViewer_app.exe</span></code>. You can find it <a class="reference external" href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/binaries/viewers.zip">here</a>.</p>
+<p>Extract the zip file and move it to the <code class="docutils literal notranslate"><span class="pre">../gaussian-splatting</span></code> folder.</p>
+<p>To set it up:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>\<span class="n">gaussian</span><span class="o">-</span><span class="n">splatting</span>\<span class="n">viewers</span>\<span class="nb">bin</span>
+
+<span class="n">SIBR_gaussianViewer_app</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">m</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>\<span class="n">gaussian</span><span class="o">-</span><span class="n">splatting</span>\<span class="n">output</span>\<span class="n">room</span>
+</pre></div>
+</div>
+<p>This should open the viewer, of which you can explore the model in.</p>
+</section>
+</section>
+<section id="unity-gaussian-splatting">
+<h1>Unity Gaussian Splatting<a class="headerlink" href="#unity-gaussian-splatting" title="Link to this heading">¶</a></h1>
+<p>To view the 3D Gaussian Splatting model in Unity, I utilized the <a class="reference external" href="https://github.com/aras-p/UnityGaussianSplatting">Gaussian Splatting playground in Unity</a> repository.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
+<section id="hardware">
+<h3>Hardware<a class="headerlink" href="#hardware" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Meta Quest Pro</p></li>
+<li><p>Meta Quest Link cable</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Software<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://unity.com/releases/editor/whats-new/2022.3.7">Unity 2022.3.7</a> :</strong> Newer versions of Unity may work as well.</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>Setup<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<p>Clone the repository to have access to the toolkit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">aras</span><span class="o">-</span><span class="n">p</span><span class="o">/</span><span class="n">UnityGaussianSplatting</span>
+</pre></div>
+</div>
+<p>In Unity Hub, open the file <code class="docutils literal notranslate"><span class="pre">../&lt;username&gt;\UnityGaussianSplatting\projects\GaussianExample</span></code> and open <strong>GSTestScene</strong> in Unity.</p>
+<section id="unity-setup">
+<h3>Unity Setup<a class="headerlink" href="#unity-setup" title="Link to this heading">¶</a></h3>
+<p>Inside Unity, navigate to <code class="docutils literal notranslate"><span class="pre">Window</span> <span class="pre">&gt;</span> <span class="pre">Package</span> <span class="pre">Manager</span></code>. Inside the Package Manager, install:</p>
+<ul class="simple">
+<li><p>OpenXR Plugin</p></li>
+<li><p>XR Plugin Management</p></li>
+<li><p>XR Interaction Toolkit</p></li>
+<li><p>Post-Processing</p></li>
+</ul>
+<p>After installing the packages, navigate to <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">&gt;</span> <span class="pre">Project</span> <span class="pre">Settings</span></code>.</p>
+<ul class="simple">
+<li><p>In <strong>XR Plugin Management</strong>, ensure that <code class="docutils literal notranslate"><span class="pre">OpenXR</span></code> is selected under the Plug-in Providers tab.</p></li>
+<li><p>Under <strong>XR Plugin Management</strong>, navigate to <strong>OpenXR</strong> and change the Render Mode to <code class="docutils literal notranslate"><span class="pre">Multi-pass</span></code>.</p></li>
+<li><p>Under <strong>XR Plugin Management</strong>, navigate to <strong>Project Validation</strong> and fix all of the errors by clicking the <code class="docutils literal notranslate"><span class="pre">Fix</span> <span class="pre">All</span></code> button.</p></li>
+</ul>
+</section>
+</section>
+<section id="importing-the-generated-3d-gaussian-splatting-model">
+<h2>Importing the Generated 3D Gaussian Splatting Model<a class="headerlink" href="#importing-the-generated-3d-gaussian-splatting-model" title="Link to this heading">¶</a></h2>
+<p>In the previous section, we generated a 3D Gaussian Splatting Model of a scene. It can be found in the folder <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\gaussian-splatting\output\room</span></code>
+Back in Unity, go to <code class="docutils literal notranslate"><span class="pre">Tools</span> <span class="pre">&gt;</span> <span class="pre">GaussianSplats</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">GaussianSplatAsset</span></code>. This should open a window that will allow for importing the .ply file. Select the .ply file, found in the folders in  <code class="docutils literal notranslate"><span class="pre">C:\Users\jlin3\gaussian-splatting\output\room\point_cloud\...</span></code>.</p>
+<p>Select <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Asset</span></code>, and it should show up within GaussianAssets.</p>
+</section>
+<section id="viewing-the-model">
+<h2>Viewing the Model<a class="headerlink" href="#viewing-the-model" title="Link to this heading">¶</a></h2>
+<p>In the Hierarchy tab of Unity, create a new Game Object and name it accordingly. Go to its properties:</p>
+<ul class="simple">
+<li><p>add <strong>Gaussian Splat Renderer</strong> and select the asset that was just imported.</p></li>
+<li><p>add <strong>Post-Process Layer</strong>, and set the Layer to <code class="docutils literal notranslate"><span class="pre">Everything</span></code>.</p></li>
+</ul>
+<p>Next, add a Camera under the Game Object. In its Properties, add a <strong>Tracked Pose Driver</strong>. This will allow the scene to be static when viewed in VR.</p>
+<p>Connect the Meta Quest Pro to the computer via Quest Link. Inside, you should be able to view the desktop and control it remotely. Select Unity from the Desktop inside the Quest Pro, and press the <strong>Play</strong> button on the top.</p>
 </section>
 </section>
 
@@ -77,9 +268,44 @@
   
     <p class="caption" role="heading"><span class="caption-text">Navigation:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to the Project</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation of the Project</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installing-the">Installing the</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to the Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-is-3d-gaussian-splatting">What is 3D Gaussian Splatting?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#dgs-pipeline">3DGS Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#why-use-virtual-reality">Why Use Virtual Reality?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#integration-in-unity">Integration in Unity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#openxr-integration">OpenXR Integration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup of the Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-the-optimizer">Installing the Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-submodules">Installing Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-preparation">Data Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizing-the-data">Optimizing the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-the-3d-gaussian-splats-in-sibr">Viewing the 3D Gaussian Splats in SIBR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#unity-gaussian-splatting">Unity Gaussian Splatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unity-setup">Unity Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-the-generated-3d-gaussian-splatting-model">Importing the Generated 3D Gaussian Splatting Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-the-model">Viewing the Model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scripts.html">Explanation of Scripts</a></li>
