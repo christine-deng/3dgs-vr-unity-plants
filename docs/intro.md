@@ -17,8 +17,13 @@ These inputs are used to generate a scene composed of 3D Gaussian primitives—e
 
 Virtual Reality (VR) provides a modern and immersive interface for interacting directly with the 3DGS models. By integrating the scene into a VR environment using Unity, users can intuitively explore complex biological structures from multiple perspectives in real time. Being hands-on, interaction using VR enables us to analyze data directly within the 3D environment. Unlike static images or flat screens, VR allows for natural navigation around the model, making it easier to observe fine details and perform spatial analysis.
 
+
 ## Integration in Unity
 
 Unity serves as the foundation of the project, bringing together 3DGS rendering and VR interaction in one environment. It functions both as the rendering engine for 3D Gaussian Splatting (3DGS) models and as the user interface for immersive exploration in Virtual Reality. The 3DGS rendering repository is integrated directly into the Unity project, enabling real-time visualization of complex point-based scenes. With Unity’s built-in support for VR and interactive controls, users can navigate, inspect, and eventually analyze the 3D models within a cohesive, interactive space.
 
 When rendering 3DGS models in Unity, the SH coefficients are used to determine the color and shading of each point based on the current view direction. This means that different perspectives of the same model produce slightly different lighting effects, enhancing realism and visual depth within the VR environment. This allows for a realistic representation of the plant within VR.
+
+### OpenXR Integration
+
+To enable VR interaction within Unity, this project uses OpenXR—-an open standard for accessing virtual and augmented reality devices. OpenXR provides a unified interface for connecting various hardware (such as VR headsets and controllers) without relying on platform-specific SDKs. In this setup, OpenXR allows Unity to detect and respond to controller input, enabling users to interact naturally with the 3DGS model in VR.
