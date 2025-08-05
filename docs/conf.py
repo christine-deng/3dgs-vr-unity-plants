@@ -9,7 +9,7 @@
 project = 'Visualizing Plants in VR Using Unity and 3DGS'
 html_title = "Visualizing Plants in VR Using Unity and 3DGS"
 
-copyright = '2025, Jasmin Lin'
+copyright = '2025, Jasmin Lin & Wei Xu'
 author = 'Jasmin Lin, Wei Xu'
 
 # -- General configuration ---------------------------------------------------
