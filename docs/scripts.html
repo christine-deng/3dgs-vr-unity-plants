@@ -50,6 +50,28 @@
   <section id="explanation-of-scripts">
 <h1>Explanation of Scripts<a class="headerlink" href="#explanation-of-scripts" title="Link to this heading">¶</a></h1>
 <p>Within Unity, we designed a pipeline that ued C# scripts within Unity to pass coordinate information to Python scripts outside of Unity, which then retrieved pixel coordinates of pictures.</p>
+<section id="c-scripts">
+<h2>C# Scripts<a class="headerlink" href="#c-scripts" title="Link to this heading">¶</a></h2>
+<section id="coordinatedisplayui-cs">
+<h3>CoordinateDisplayUI.cs<a class="headerlink" href="#coordinatedisplayui-cs" title="Link to this heading">¶</a></h3>
+<p>This script diplays the XYZ world coordinate of where the VR controller’s ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the</p>
+</section>
+<section id="cameraloader-cs">
+<h3>CameraLoader.cs<a class="headerlink" href="#cameraloader-cs" title="Link to this heading">¶</a></h3>
+<p>This script is used to load in each individual camera, using the camera metadata file, <code class="docutils literal notranslate"><span class="pre">cameras.json</span></code>. The metadata contains:</p>
+<ul class="simple">
+<li><p>image name: <code class="docutils literal notranslate"><span class="pre">&quot;image00.png&quot;</span></code></p></li>
+<li><p>image dimensions: <code class="docutils literal notranslate"><span class="pre">&quot;width&quot;:</span> <span class="pre">2200</span> <span class="pre">,</span> <span class="pre">&quot;height&quot;:4000</span></code></p></li>
+<li><p>image position (1x3 matrix)</p></li>
+<li><p>image rotation (3x3 matrix)</p></li>
+<li><p>focal length (x, and y)
+The script loads in each camera into their respective locations using calculatinos to tranform the camera poition $ rotation into a Unity poition. It then converts the rotation matrix to quaternion, which Unity uses to apply 3D rotations.</p></li>
+</ul>
+</section>
+</section>
+<section id="python-scripts">
+<h2>Python Scripts<a class="headerlink" href="#python-scripts" title="Link to this heading">¶</a></h2>
+</section>
 </section>
 
 
@@ -90,7 +112,11 @@
 <li class="toctree-l2"><a class="reference internal" href="install.html#viewing-the-3d-gaussian-splats-in-sibr">Viewing the 3D Gaussian Splats in SIBR</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Explanation of Scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Explanation of Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#c-scripts">C# Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-scripts">Python Scripts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="unity.html">Unity Gaussian Splatting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="unity.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unity.html#setup">Setup</a></li>
