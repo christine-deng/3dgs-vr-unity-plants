@@ -1,6 +1,6 @@
 # Introduction to the Project 
 
-This project was part of my 2025 DOE SULI internship project, overseen by my mentor, [Wei Xu](https://www.bnl.gov/staff/xuw) at Brookhaven National Laboratory. In this project, I utilize Unity as a medium to render and interact with 3D Gaussian Splatting (3DGS) plant models. I use aras-p's [Gaussian Splatting playground Unity](https://github.com/aras-p/UnityGaussianSplatting) project to render the models. I incorporate virtual reality (VR) as a means to interact and visualize the plants.
+This project was part of my 2025 DOE SULI internship project, overseen by my mentor, [Wei Xu](https://www.bnl.gov/staff/xuw) at Brookhaven National Laboratory. In this project, I utilize Unity as a medium to render and interact with 3D Gaussian Splatting (3DGS) plant models. I use aras-p's [Gaussian Splatting playground Unity](https://github.com/aras-p/UnityGaussianSplatting) project to render the models. I incorporate virtual reality (VR) as a means to interact and visualize the plants. My forked repository can be found on my [GitHub](https://github.com/lajazz23/unity-gs-with-plants).
 
 ## What is 3D Gaussian Splatting?
 
