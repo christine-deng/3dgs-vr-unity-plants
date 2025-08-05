@@ -1,5 +1,9 @@
+/* Ensure the code block container is relatively positioned */
+div.highlight {
+  position: relative !important;
+}
 
-/* Copy button to the top right of code blocks */
+/* Style the copy button inside the code block */
 .copybtn {
   position: absolute !important;
   top: 0.25em !important;
