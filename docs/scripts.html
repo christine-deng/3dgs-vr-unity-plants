@@ -60,7 +60,7 @@
 </section>
 <section id="coordinatedisplayui-cs">
 <h3>CoordinateDisplayUI.cs<a class="headerlink" href="#coordinatedisplayui-cs" title="Link to this heading">¶</a></h3>
-<p>This script diplays the XYZ world coordinate of where the VR controller’s ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the script display the coordinate at the interection of the ray and the mesh, and then saves the coordinate to <code class="docutils literal notranslate"><span class="pre">found_images.json</span></code>, which is passed to other scripts.</p>
+<p>This script diplays the XYZ world coordinate of where the VR controller’s ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the script display the coordinate at the interection of the ray and the mesh, and then saves the coordinate to <code class="docutils literal notranslate"><span class="pre">found_images.json</span></code>, which is passed to other scripts. This script calls onto the <a class="reference internal" href="#python-scripts"><span class="xref myst">Python</span></a> scripts.</p>
 </section>
 <section id="cameraloader-cs">
 <h3>CameraLoader.cs<a class="headerlink" href="#cameraloader-cs" title="Link to this heading">¶</a></h3>
@@ -81,8 +81,13 @@ The script loads in each camera into their respective locations using calculatin
 </section>
 <section id="python-scripts">
 <h2>Python Scripts<a class="headerlink" href="#python-scripts" title="Link to this heading">¶</a></h2>
+<section id="camera-unloader-py">
+<h3>camera_unloader.py<a class="headerlink" href="#camera-unloader-py" title="Link to this heading">¶</a></h3>
+<p>Thi script finds the best camera that is associated with the chosen coordinate. It transforms the 3D world point into the camera coordinate system to determine the closest and best oriented camera relative to the point.</p>
+</section>
 <section id="image-retriever-py">
 <h3>image_retriever.py<a class="headerlink" href="#image-retriever-py" title="Link to this heading">¶</a></h3>
+<p>This script call on <code class="docutils literal notranslate"><span class="pre">camera_unloader.py</span></code> to obtain the camera coordinates. It projects the point to 2D image pixels using the camera pinhole model. The image retrieved is saved alongside it pixel information to <code class="docutils literal notranslate"><span class="pre">found_images.json</span></code>.</p>
 </section>
 </section>
 </section>

@@ -11,7 +11,7 @@ Yes, the script is named `FolderPathSaver.cs.cs`. This script is central to givi
 
 ### CoordinateDisplayUI.cs
 
-This script diplays the XYZ world coordinate of where the VR controller's ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the script display the coordinate at the interection of the ray and the mesh, and then saves the coordinate to `found_images.json`, which is passed to other scripts.
+This script diplays the XYZ world coordinate of where the VR controller's ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the script display the coordinate at the interection of the ray and the mesh, and then saves the coordinate to `found_images.json`, which is passed to other scripts. This script calls onto the [Python](#python-scripts) scripts.
 
 ### CameraLoader.cs
 
@@ -29,5 +29,10 @@ This script imports the image inside `found_images.json` and displays it inside 
 
 ## Python Scripts
 
+### camera_unloader.py
+
+Thi script finds the best camera that is associated with the chosen coordinate. It transforms the 3D world point into the camera coordinate system to determine the closest and best oriented camera relative to the point. 
+
 ### image_retriever.py
 
+This script call on `camera_unloader.py` to obtain the camera coordinates. It projects the point to 2D image pixels using the camera pinhole model. The image retrieved is saved alongside it pixel information to `found_images.json`.
