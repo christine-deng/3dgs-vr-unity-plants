@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#2D2D2D" />
   
-  <title>Visualizing Plants in VR Using Unity and 3DGS :: Setup of the Project</title>
+  <title>Visualizing Plants in VR Using Unity and 3DGS :: Setting up 3DGS</title>
   
 
   <link rel="icon" type="image/png" sizes="32x32" href="_static/img/favicon-32x32.png">
@@ -47,8 +47,8 @@
       <div id="main-content-container">
         <div id="main-content" role="main">
           
-  <section id="setup-of-the-project">
-<h1>Setup of the Project<a class="headerlink" href="#setup-of-the-project" title="Link to this heading">¶</a></h1>
+  <section id="setting-up-3dgs">
+<h1>Setting up 3DGS<a class="headerlink" href="#setting-up-3dgs" title="Link to this heading">¶</a></h1>
 <section id="hardware-requirements">
 <h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading">¶</a></h2>
 <ul class="simple">
@@ -184,66 +184,6 @@ First, I renamed the video for clarity and moved it into <code class="docutils l
 <p>This should open the viewer, of which you can explore the model in.</p>
 </section>
 </section>
-<section id="unity-gaussian-splatting">
-<h1>Unity Gaussian Splatting<a class="headerlink" href="#unity-gaussian-splatting" title="Link to this heading">¶</a></h1>
-<p>To view the 3D Gaussian Splatting model in Unity, I utilized the <a class="reference external" href="https://github.com/aras-p/UnityGaussianSplatting">Gaussian Splatting playground in Unity</a> repository.</p>
-<section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
-<section id="hardware">
-<h3>Hardware<a class="headerlink" href="#hardware" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Meta Quest Pro</p></li>
-<li><p>Meta Quest Link cable</p></li>
-</ul>
-</section>
-<section id="id1">
-<h3>Software<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p><strong><a class="reference external" href="https://unity.com/releases/editor/whats-new/2022.3.7">Unity 2022.3.7</a> :</strong> Newer versions of Unity may work as well.</p></li>
-</ul>
-</section>
-</section>
-<section id="id2">
-<h2>Setup<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<p>Clone the repository to have access to the toolkit.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">aras</span><span class="o">-</span><span class="n">p</span><span class="o">/</span><span class="n">UnityGaussianSplatting</span>
-</pre></div>
-</div>
-<p>In Unity Hub, open the file <code class="docutils literal notranslate"><span class="pre">../&lt;username&gt;\UnityGaussianSplatting\projects\GaussianExample</span></code> and open <strong>GSTestScene</strong> in Unity.</p>
-<section id="unity-setup">
-<h3>Unity Setup<a class="headerlink" href="#unity-setup" title="Link to this heading">¶</a></h3>
-<p>Inside Unity, navigate to <code class="docutils literal notranslate"><span class="pre">Window</span> <span class="pre">&gt;</span> <span class="pre">Package</span> <span class="pre">Manager</span></code>. Inside the Package Manager, install:</p>
-<ul class="simple">
-<li><p>OpenXR Plugin</p></li>
-<li><p>XR Plugin Management</p></li>
-<li><p>XR Interaction Toolkit</p></li>
-<li><p>Post-Processing</p></li>
-</ul>
-<p>After installing the packages, navigate to <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">&gt;</span> <span class="pre">Project</span> <span class="pre">Settings</span></code>.</p>
-<ul class="simple">
-<li><p>In <strong>XR Plugin Management</strong>, ensure that <code class="docutils literal notranslate"><span class="pre">OpenXR</span></code> is selected under the Plug-in Providers tab.</p></li>
-<li><p>Under <strong>XR Plugin Management</strong>, navigate to <strong>OpenXR</strong> and change the Render Mode to <code class="docutils literal notranslate"><span class="pre">Multi-pass</span></code>.</p></li>
-<li><p>Under <strong>XR Plugin Management</strong>, navigate to <strong>Project Validation</strong> and fix all of the errors by clicking the <code class="docutils literal notranslate"><span class="pre">Fix</span> <span class="pre">All</span></code> button.</p></li>
-</ul>
-</section>
-</section>
-<section id="importing-the-generated-3d-gaussian-splatting-model">
-<h2>Importing the Generated 3D Gaussian Splatting Model<a class="headerlink" href="#importing-the-generated-3d-gaussian-splatting-model" title="Link to this heading">¶</a></h2>
-<p>In the previous section, we generated a 3D Gaussian Splatting Model of a scene. It can be found in the folder <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\gaussian-splatting\output\room</span></code>
-Back in Unity, go to <code class="docutils literal notranslate"><span class="pre">Tools</span> <span class="pre">&gt;</span> <span class="pre">GaussianSplats</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">GaussianSplatAsset</span></code>. This should open a window that will allow for importing the .ply file. Select the .ply file, found in the folders in  <code class="docutils literal notranslate"><span class="pre">C:\Users\jlin3\gaussian-splatting\output\room\point_cloud\...</span></code>.</p>
-<p>Select <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Asset</span></code>, and it should show up within GaussianAssets.</p>
-</section>
-<section id="viewing-the-model">
-<h2>Viewing the Model<a class="headerlink" href="#viewing-the-model" title="Link to this heading">¶</a></h2>
-<p>In the Hierarchy tab of Unity, create a new Game Object and name it accordingly. Go to its properties:</p>
-<ul class="simple">
-<li><p>add <strong>Gaussian Splat Renderer</strong> and select the asset that was just imported.</p></li>
-<li><p>add <strong>Post-Process Layer</strong>, and set the Layer to <code class="docutils literal notranslate"><span class="pre">Everything</span></code>.</p></li>
-</ul>
-<p>Next, add a Camera under the Game Object. In its Properties, add a <strong>Tracked Pose Driver</strong>. This will allow the scene to be static when viewed in VR.</p>
-<p>Connect the Meta Quest Pro to the computer via Quest Link. Inside, you should be able to view the desktop and control it remotely. Select Unity from the Desktop inside the Quest Pro, and press the <strong>Play</strong> button on the top.</p>
-</section>
-</section>
 
 
         </div>
@@ -274,7 +214,7 @@ Back in Unity, go to <code class="docutils literal notranslate"><span class="pre
 <li class="toctree-l2"><a class="reference internal" href="intro.html#integration-in-unity">Integration in Unity</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup of the Project</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up 3DGS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#software">Software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
@@ -283,14 +223,14 @@ Back in Unity, go to <code class="docutils literal notranslate"><span class="pre
 <li class="toctree-l2"><a class="reference internal" href="#viewing-the-3d-gaussian-splats-in-sibr">Viewing the 3D Gaussian Splats in SIBR</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#unity-gaussian-splatting">Unity Gaussian Splatting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#importing-the-generated-3d-gaussian-splatting-model">Importing the Generated 3D Gaussian Splatting Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#viewing-the-model">Viewing the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Explanation of Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unity.html">Unity Gaussian Splatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unity.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unity.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unity.html#importing-the-generated-3d-gaussian-splatting-model">Importing the Generated 3D Gaussian Splatting Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unity.html#viewing-the-model">Viewing the Model</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="scripts.html">Explanation of Scripts</a></li>
 </ul>
 
   
