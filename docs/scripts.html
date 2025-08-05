@@ -54,9 +54,13 @@
 <p>Within Unity, we designed a pipeline that ued C# scripts within Unity to pass coordinate information to Python scripts outside of Unity, which then retrieved pixel coordinates of pictures.</p>
 <section id="c-scripts">
 <h2>C# Scripts<a class="headerlink" href="#c-scripts" title="Link to this heading">¶</a></h2>
+<section id="folderpathsaver-cs-cs">
+<h3>FolderPathSaver.cs.cs<a class="headerlink" href="#folderpathsaver-cs-cs" title="Link to this heading">¶</a></h3>
+<p>Yes, the script is named <code class="docutils literal notranslate"><span class="pre">FolderPathSaver.cs.cs</span></code>. This script is central to giving all the other scripts access to the files. Users can input file paths into the Unity Inspector where the script is attatched. This method allows for a more efficient way to control file paths in each script.</p>
+</section>
 <section id="coordinatedisplayui-cs">
 <h3>CoordinateDisplayUI.cs<a class="headerlink" href="#coordinatedisplayui-cs" title="Link to this heading">¶</a></h3>
-<p>This script diplays the XYZ world coordinate of where the VR controller’s ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the script display the coordinate at the interection of the ray and the mesh, and then sav</p>
+<p>This script diplays the XYZ world coordinate of where the VR controller’s ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the script display the coordinate at the interection of the ray and the mesh, and then saves the coordinate to <code class="docutils literal notranslate"><span class="pre">found_images.json</span></code>, which is passed to other scripts.</p>
 </section>
 <section id="cameraloader-cs">
 <h3>CameraLoader.cs<a class="headerlink" href="#cameraloader-cs" title="Link to this heading">¶</a></h3>
@@ -67,12 +71,19 @@
 <li><p>image position (1x3 matrix)</p></li>
 <li><p>image rotation (3x3 matrix)</p></li>
 <li><p>focal length (x, and y)
-The script loads in each camera into their respective locations using calculatinos to tranform the camera poition $ rotation into a Unity poition. It then converts the rotation matrix to quaternion, which Unity uses to apply 3D rotations.</p></li>
+The script loads in each camera into their respective locations using calculatinos to tranform the camera position &amp; rotation into a Unity position. It then converts the rotation matrix to quaternion, which Unity uses to apply 3D rotations.</p></li>
 </ul>
+</section>
+<section id="imagedisplay-cs">
+<h3>ImageDisplay.cs<a class="headerlink" href="#imagedisplay-cs" title="Link to this heading">¶</a></h3>
+<p>This script imports the image inside <code class="docutils literal notranslate"><span class="pre">found_images.json</span></code> and displays it inside the world space inside Unity.</p>
 </section>
 </section>
 <section id="python-scripts">
 <h2>Python Scripts<a class="headerlink" href="#python-scripts" title="Link to this heading">¶</a></h2>
+<section id="image-retriever-py">
+<h3>image_retriever.py<a class="headerlink" href="#image-retriever-py" title="Link to this heading">¶</a></h3>
+</section>
 </section>
 </section>
 
