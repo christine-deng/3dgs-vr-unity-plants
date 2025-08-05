@@ -1,0 +1,21 @@
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+{% endblock %}
+
+{% block body %}
+  {{ super() }}
+  <!-- Back to Top button -->
+  <a href="#" id="back-to-top" title="Back to Top">&#8679;</a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const topBtn = document.getElementById("back-to-top");
+      topBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+{% endblock %}

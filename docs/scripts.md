@@ -6,7 +6,7 @@ Within Unity, we designed a pipeline that ued C# scripts within Unity to pass co
 
 ### CoordinateDisplayUI.cs
 
-This script diplays the XYZ world coordinate of where the VR controller's ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the 
+This script diplays the XYZ world coordinate of where the VR controller's ray hits the 3D mesh of the 3DGS model. When the trigger button is pressed, the script display the coordinate at the interection of the ray and the mesh, and then sav
 
 ### CameraLoader.cs
 
