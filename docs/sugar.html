@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#2D2D2D" />
   
-  <title>Visualizing Plants in VR Using Unity and 3DGS :: Search</title>
+  <title>Visualizing Plants in VR Using Unity and 3DGS :: Extracting a Mesh</title>
   
 
   <link rel="icon" type="image/png" sizes="32x32" href="_static/img/favicon-32x32.png">
@@ -16,21 +17,15 @@
   <link rel="stylesheet" href="_static/css/custom.css"/>
 
   <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    
       <script type="text/javascript" src="_static/documentation_options.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
       <script type="text/javascript" src="_static/sphinx_highlight.js"></script>
       <script type="text/javascript" src="_static/clipboard.min.js"></script>
       <script type="text/javascript" src="_static/copybutton.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
   
-    <script src="_static/language_data.js"></script>
 
   <script src="https://email.tl.fortawesome.com/c/eJxNjUEOgyAQAF8jR7Kw6wIHDh7sP1Cw2mgxgmn6-3JsMqc5zEQfE8dkxOY1KKMUOI3ACFKRJpSW2AAp7ontYIaxI6i7XPJVwyeVfCQ550Os3jLrGSNOLgbdAy6s0PBk2TFNjEbsfq31LB0OnX407pJa5v2faRadwSW63mn5KuLyR9j2tgx3zecanl-55R_-jjPs"></script>
-  <script src="searchindex.js" defer></script>
-  
    
-
 
 </head>
 
@@ -54,14 +49,14 @@
       <div id="main-content-container">
         <div id="main-content" role="main">
           
-  <noscript>
-    <p>Documentation searching relies on Javascript. Please enable it.</p>
-  </noscript>
-
-  
-  <div id="search-results">
-  
-  </div>
+  <section id="extracting-a-mesh">
+<h1>Extracting a Mesh<a class="headerlink" href="#extracting-a-mesh" title="Link to this heading">¶</a></h1>
+<p>An issue with vanilla 3D Gaussian Splatting (3D GS) is the lack of a physical collider within Unity VR. Without a mesh, the rays from the controllers peirce through the splats and render them undetectable. To combat this issue, I used <a class="reference external" href="https://github.com/Anttwo/SuGaR?tab=readme-ov-file">SuGaR</a> to export the mesh from the original model. Then, I implemented this mesh into Unity to allow for the rays to intersect with the mesh, now situated inside the 3D GS model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">train_full_pipeline</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">username</span><span class="o">&gt;/</span><span class="n">gaussian</span><span class="o">-</span><span class="n">splatting</span><span class="o">/</span><span class="n">input_data</span><span class="o">/</span><span class="n">room</span> <span class="o">-</span><span class="n">r</span> <span class="s2">&quot;dn_consistency&quot;</span> <span class="o">--</span><span class="n">high_poly</span> <span class="kc">True</span> <span class="o">--</span><span class="n">export_obj</span> <span class="kc">True</span> <span class="o">--</span><span class="n">gs_output_dir</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">username</span><span class="o">&gt;/</span><span class="n">gaussian</span><span class="o">-</span><span class="n">splatting</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">room</span>
+</pre></div>
+</div>
+<p>After extracting the mesh, I import it into <a class="reference external" href="https://www.meshlab.net/">MeshLab</a> to prune it and remove excess noise. I can then import this edited mesh into Unity, where it will situate itself inside of the 3D GS model.</p>
+</section>
 
 
         </div>
@@ -70,7 +65,7 @@
       <div id="side-menu-container">
 
         <div id="search" role="search">
-        <form id="rtd-search-form" class="wy-form" action="#" method="get">
+        <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
             <input type="text" name="q" placeholder="Search..." />
             <input type="hidden" name="check_keywords" value="yes" />
             <input type="hidden" name="area" value="default" />
@@ -85,7 +80,7 @@
   
   
     <p class="caption" role="heading"><span class="caption-text">Navigation:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to the Project</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#what-is-3d-gaussian-splatting">What is 3D Gaussian Splatting?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#why-use-virtual-reality">Why Use Virtual Reality?</a></li>
@@ -113,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="unity.html#viewing-the-model">Viewing the Model</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sugar.html">Extracting a Mesh</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extracting a Mesh</a></li>
 </ul>
 
   
@@ -132,6 +127,8 @@
         <ul id="build-details">
             
                 <li class="footer-element">
+                    
+                        <a href="_sources/sugar.md.txt" rel="nofollow"> source</a>
                     
                 </li>
             
