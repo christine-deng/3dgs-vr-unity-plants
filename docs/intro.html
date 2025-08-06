@@ -59,6 +59,7 @@
 <h3>3DGS Pipeline<a class="headerlink" href="#dgs-pipeline" title="Link to this heading">¶</a></h3>
 <p>The 3DGS pipeline reconstructs a 3D scene from a collection of 2D images with known camera poses. The process typically begins with input images and corresponding camera parameters, which are often obtained through Structure-from-Motion (SfM) tools such as COLMAP. The camera poses are extracted into a JSON file. Importantly, each Gaussian in the 3DGS model stores spherical harmonic (SH) coefficients, which encode how that point reflects light from various viewing angles. This view-dependent shading enables realistic lighting without needing physical light sources or detailed surface geometry. As a result, the model can reproduce subtle changes in appearance based on camera position.</p>
 <p>These inputs are used to generate a scene composed of 3D Gaussian primitives—each representing position, scale, color, and orientation. Instead of relying on traditional mesh geometry, 3DGS renders the scene directly from these point-based representations using efficient rasterization techniques. The output is a high-fidelity, real-time-renderable 3D scene that can be visualized in applications such as Unity, with full support for camera movement and scene interaction.</p>
+<p><img alt="plants" src="_images/plant_pictures.png" /></p>
 </section>
 </section>
 <section id="why-use-virtual-reality">

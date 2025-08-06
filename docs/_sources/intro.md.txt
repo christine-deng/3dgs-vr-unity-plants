@@ -12,6 +12,7 @@ The 3DGS pipeline reconstructs a 3D scene from a collection of 2D images with kn
 
 These inputs are used to generate a scene composed of 3D Gaussian primitives—each representing position, scale, color, and orientation. Instead of relying on traditional mesh geometry, 3DGS renders the scene directly from these point-based representations using efficient rasterization techniques. The output is a high-fidelity, real-time-renderable 3D scene that can be visualized in applications such as Unity, with full support for camera movement and scene interaction.
 
+![plants](images/plant_pictures.png)
 
 ## Why Use Virtual Reality?
 
