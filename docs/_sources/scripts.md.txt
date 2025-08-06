@@ -21,6 +21,7 @@ This script is used to load in each individual camera, using the camera metadata
 - image position (1x3 matrix)
 - image rotation (3x3 matrix)
 - focal length (x, and y)
+
 The script loads in each camera into their respective locations using calculatinos to tranform the camera position & rotation into a Unity position. It then converts the rotation matrix to quaternion, which Unity uses to apply 3D rotations. 
 
 ### ImageDisplay.cs
