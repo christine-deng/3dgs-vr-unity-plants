@@ -22,7 +22,7 @@ This script is used to load in each individual camera, using the camera metadata
 - image rotation (3x3 matrix)
 - focal length (x, and y)
 
-The script loads in each camera into their respective locations using calculatinos to tranform the camera position & rotation into a Unity position. It then converts the rotation matrix to quaternion, which Unity uses to apply 3D rotations. 
+The script loads in each camera into their respective locations using calculations to tranform the camera position & rotation into a Unity position. It then converts the rotation matrix to quaternion, which Unity uses to apply 3D rotations. 
 
 ### ImageDisplay.cs
 
@@ -33,6 +33,8 @@ This script imports the image inside `found_images.json` and displays it inside 
 ### camera_unloader.py
 
 Thi script finds the best camera that is associated with the chosen coordinate. It transforms the 3D world point into the camera coordinate system to determine the closest and best oriented camera relative to the point. 
+![Camera_to_world](images/worldcamera.png)
+![focal_lengths](images/cameraimage.png)
 
 ### image_retriever.py
 

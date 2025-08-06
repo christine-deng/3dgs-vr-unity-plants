@@ -72,7 +72,7 @@
 <li><p>image rotation (3x3 matrix)</p></li>
 <li><p>focal length (x, and y)</p></li>
 </ul>
-<p>The script loads in each camera into their respective locations using calculatinos to tranform the camera position &amp; rotation into a Unity position. It then converts the rotation matrix to quaternion, which Unity uses to apply 3D rotations.</p>
+<p>The script loads in each camera into their respective locations using calculations to tranform the camera position &amp; rotation into a Unity position. It then converts the rotation matrix to quaternion, which Unity uses to apply 3D rotations.</p>
 </section>
 <section id="imagedisplay-cs">
 <h3>ImageDisplay.cs<a class="headerlink" href="#imagedisplay-cs" title="Link to this heading">¶</a></h3>
@@ -83,7 +83,9 @@
 <h2>Python Scripts<a class="headerlink" href="#python-scripts" title="Link to this heading">¶</a></h2>
 <section id="camera-unloader-py">
 <h3>camera_unloader.py<a class="headerlink" href="#camera-unloader-py" title="Link to this heading">¶</a></h3>
-<p>Thi script finds the best camera that is associated with the chosen coordinate. It transforms the 3D world point into the camera coordinate system to determine the closest and best oriented camera relative to the point.</p>
+<p>Thi script finds the best camera that is associated with the chosen coordinate. It transforms the 3D world point into the camera coordinate system to determine the closest and best oriented camera relative to the point.
+<img alt="Camera_to_world" src="_images/worldcamera.png" />
+<img alt="focal_lengths" src="_images/cameraimage.png" /></p>
 </section>
 <section id="image-retriever-py">
 <h3>image_retriever.py<a class="headerlink" href="#image-retriever-py" title="Link to this heading">¶</a></h3>
