@@ -4,7 +4,7 @@ This project was part of my 2025 DOE SULI internship project, overseen by my men
 
 ## What is 3D Gaussian Splatting?
 
-3D Gaussian Splatting (3D GS)--a point-based rendering method that uses 2D images to reconstruct realistic 3D scenes. Compared to other notable rendering methods such as NeRF and InstantNGP, 3D GS can produce equal or even higher quality models at fast training speeds using real-time rendering and efficient rasterization, increasing the realm of complex scene generation. Through the use of anisotropic splats to represent surface geometry and texture, 3D GS eliminates the use of manual mesh generation, greatly increasing efficiency.
+[3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) (3D GS) is a point-based rendering method that uses 2D images to reconstruct realistic 3D scenes. Compared to other notable rendering methods such as [NeRF](https://www.matthewtancik.com/nerf), 3D GS can produce equal or even higher quality models at fast training speeds using real-time rendering and efficient rasterization, increasing the realm of complex scene generation. Through the use of anisotropic splats to represent surface geometry and texture, 3D GS eliminates the use of manual mesh generation, greatly increasing efficiency.
 
 ### 3DGS Pipeline
 
