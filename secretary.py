@@ -3,7 +3,7 @@ import sys
 import html_rebuild
 import time
 
-URL = "https://github.com/lajazz23/3dgs-vr-unity-plants.git"
+URL = "https://github.com/christine-deng/3dgs-vr-unity-plants.git"
 DEFAULT_COMMIT_MSG = "Updating..."
 
 def remote_exists():
