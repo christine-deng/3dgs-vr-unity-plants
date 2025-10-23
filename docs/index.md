@@ -13,6 +13,7 @@
 
 intro.md
 install.md
+segmentation.md
 scripts.md
 unity.md
 sugar.md
