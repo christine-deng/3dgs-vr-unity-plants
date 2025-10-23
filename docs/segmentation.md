@@ -16,7 +16,7 @@ git clone https://github.com/luca-medeiros/lang-segment-anything && cd lang-segm
 ```
 Install the package as such:
 ```
-pip install -e.
+pip install -e .
 ```
 
 
