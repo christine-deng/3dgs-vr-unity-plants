@@ -80,7 +80,7 @@ The folder structure at this stage should appear as such:
 │   │...
 │...
 ```
-Now, DELETE the images folder. Then, rename ``masked_images`` to ``images`` without altering the contents of the folder. The folders should look like this:
+Now, DELETE the current ``images`` folder. Then, rename ``masked_images`` to ``images`` without altering the contents of the folder. The folders should look like this after:
 ```
 📂.../ 
 ├──📂gaussian-splatting/ 
