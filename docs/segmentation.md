@@ -19,9 +19,10 @@ Install the package as such:
 pip install -e .
 ```
 
-
 ## Data Preparation
-The images need to be setup in a specific way so that the segmentation script can recognize it. This setup follows the same format required for COLMAP, as seen in later sections. The structure is seen below:
+The images are setup in the same format format as COLMAP. This is because the segmentation step must be ran AFTER creating a point cloud from COLMAP. Please refer to the "Data Preparation" section under [Setting up 3DGS](https://christine-deng.github.io/3dgs-vr-unity-plants/install.html#data-preparation) for more details on COLMAP.
+
+The structure after running COLMAP is seen below:
 
 ```
 📂.../ 
@@ -29,6 +30,10 @@ The images need to be setup in a specific way so that the segmentation script ca
 │   ├──📂input_data/
 │   │	├──📂plant/
 │   │	│	├──📂input/
+│   │	│	│	├── 🖼️ <raw image 0>
+│   │	│	│	├── 🖼️ <raw image 1>
+│   │	│	│	│...
+│   │	│	├──📂images/
 │   │	│	│	├── 🖼️ <image 0>
 │   │	│	│	├── 🖼️ <image 1>
 │   │	│	│	│...
@@ -36,7 +41,7 @@ The images need to be setup in a specific way so that the segmentation script ca
 │   │...
 │...
 ```
-Here, the images are JPEG photos.
+Here, the images inside the ``input`` folder are the original JPEG photos. The images inside the ``image`` folder are geometrically corrected versions of the original photos.
 
 ## Masking
 Change the directory into where the images are stored, and run the script to create the masks.
@@ -48,8 +53,49 @@ python ..\..\create_mask.py
 ```
 The script will utilize Language Segment-Anything to detect the plant from the rest of the image. Then, an alpha channel is applied to extract the parts of the image corresponding to the mask.
 
-Note that the new plant foreground image is saved as a PNG, and the original in the input folder is deleted.
+Note that the new plant foreground image is saved as a JPEG in the ``masked_images`` folder, with a black background.
 
 ![plants](images/before_seg.jpeg)
 ![plants](images/after_seg.png)
+
+The folder structure at this stage should appear as such:
+```
+📂.../ 
+├──📂gaussian-splatting/ 
+│   ├──📂input_data/
+│   │	├──📂plant/
+│   │	│	├──📂input/
+│   │	│	│	├── 🖼️ <raw image 0>
+│   │	│	│	├── 🖼️ <raw image 1>
+│   │	│	│	│...
+│   │	│	├──📂images/
+│   │	│	│	├── 🖼️ <image 0>
+│   │	│	│	├── 🖼️ <image 1>
+│   │	│	│	│...
+│   │	│	├──📂masked_images/
+│   │	│	│	├── 🖼️ <masked image 0>
+│   │	│	│	├── 🖼️ <masked image 1>
+│   │	│	│	│...
+│   │   │...
+│   │...
+│...
+```
+Now, DELETE the images folder. Then, rename ``masked_images`` to ``images`` without altering the contents of the folder. The folders should look like this:
+```
+📂.../ 
+├──📂gaussian-splatting/ 
+│   ├──📂input_data/
+│   │	├──📂plant/
+│   │	│	├──📂input/
+│   │	│	│	├── 🖼️ <raw image 0>
+│   │	│	│	├── 🖼️ <raw image 1>
+│   │	│	│	│...
+│   │	│	├──📂images/
+│   │	│	│	├── 🖼️ <masked image 0>
+│   │	│	│	├── 🖼️ <masked image 1>
+│   │	│	│	│...
+│   │   │...
+│   │...
+│...
+```
 
