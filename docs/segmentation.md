@@ -55,7 +55,10 @@ The script will utilize Language Segment-Anything to detect the plant from the r
 
 Note that the new plant foreground image is saved as a JPEG in the ``masked_images`` folder, with a black background.
 
+Image before segmentation:
 ![plants](images/before_seg.jpeg)
+
+Image after segmentation:
 ![plants](images/after_seg.jpg)
 
 The folder structure at this stage should appear as such:
